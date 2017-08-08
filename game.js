@@ -140,8 +140,8 @@ $(document).ready(function () {
 
     function announceWinner() {
 
-        let mC = document.getElementById("myCounter").innerHTML;
-        let cC = document.getElementById("computerCounter").innerHTML;
+        let mC = parseInt(document.getElementById("myCounter").innerHTML);
+        let cC = parseInt(document.getElementById("computerCounter").innerHTML);
 
         if (mC > cC) {
 
