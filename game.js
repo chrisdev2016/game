@@ -2,25 +2,33 @@ $(document).ready(function () {
 
     var mC = 0;
     var cC = 0;
-
+    var seconds = 0;
     document.getElementById("myCounter").innerHTML = mC;
     document.getElementById("computerCounter").innerHTML = cC;
 
-      var computerSpeed = Math.random() * 1000;
-        var mySpeed = Math.random() * 1000;
-
+    var computerSpeed = Math.random() * 1000;
+    var mySpeed = Math.random() * 1000;
+    var block = false;
     $("#start").click(function () {
 
         // var computerSpeed = Math.random() * 1000;
         // var mySpeed = Math.random() * 1000;
+        if (!block) {
+            if (mC != 0 || cC != 0) {
+                // $("#box1").animate({ "bottom": "-=420px" }, 0)
+                $("#box2").animate({ "bottom": "-=420px" }, 0)
+            }
 
-        if (mC != 0 || cC != 0) {
-            // $("#box1").animate({ "bottom": "-=420px" }, 0)
-            $("#box2").animate({ "bottom": "-=420px" }, 0)
+            // $("#box1").animate({ "bottom": "+=420px" }, computerSpeed-100)
+            $("#box2").animate({ "bottom": "+=420px" }, mySpeed - 100)
+            console.log(mC);
+            mC++
+            document.getElementById("myCounter").innerHTML = mC;
+            block= true;
+            
+            setTimeout(()=> {block = false;}, mySpeed-100)
+            mySpeed = Math.random() * 1000;
         }
-
-        // $("#box1").animate({ "bottom": "+=420px" }, computerSpeed-100)
-        $("#box2").animate({ "bottom": "+=420px" }, mySpeed - 100)
 
         // if (mySpeed > computerSpeed) {
         //     mC++    
@@ -49,7 +57,7 @@ $(document).ready(function () {
 
 
         playFunction();
-        
+
 
     })
 
@@ -60,9 +68,10 @@ $(document).ready(function () {
 
     function playFunction() {
         var x = setInterval(countDown, 1000)
-        var y = setInterval(startRobot,1000)
-
-        var seconds = 10;
+        // var y = setInterval(startRobot, 1000)
+        var computerSpeed = Math.random() * 1000;
+        seconds = 10;
+        var y = setTimeout(startRobot, computerSpeed);
         document.getElementById("countdown").innerHTML = seconds
 
         function countDown() {
@@ -83,12 +92,12 @@ $(document).ready(function () {
 
 
     function startRobot() {
-        
-        var computerSpeed = Math.random() * 1000;
-       
+
+
+
 
         let cC = document.getElementById("computerCounter").innerHTML;
-        
+
 
         if (mC != 0 || cC != 0) {
             $("#box1").animate({ "bottom": "-=420px" }, 0)
@@ -98,34 +107,36 @@ $(document).ready(function () {
         $("#box1").animate({ "bottom": "+=420px" }, computerSpeed - 100)
         // $("#box2").animate({ "bottom": "+=420px" }, mySpeed-100)
 
-
-       
-
-
-
-    }
-
-    function compareSpeed() {
-
-        if (mySpeed > computerSpeed) {
-            mC++
-            document.getElementById("myCounter").innerHTML = mC;
-
-        }
-
-        else if (computerSpeed > mySpeed) {
-            cC++
-            document.getElementById("computerCounter").innerHTML = cC;
-        }
-        else {
-            mC++
-            cC++
-            document.getElementById("myCounter").innerHTML = mC;
-            document.getElementById("computerCounter").innerHTML = cC;
-
+        cC++
+        document.getElementById("computerCounter").innerHTML = cC;
+        if (seconds > -1) {
+            computerSpeed = Math.random() * 1000;
+            setTimeout(startRobot, computerSpeed);
         }
 
     }
+
+    // function compareSpeed() {
+
+    //     if (mySpeed > computerSpeed) {
+    //         mC++
+    //         document.getElementById("myCounter").innerHTML = mC;
+
+    //     }
+
+    //     else if (computerSpeed > mySpeed) {
+    //         cC++
+    //         document.getElementById("computerCounter").innerHTML = cC;
+    //     }
+    //     else {
+    //         mC++
+    //         cC++
+    //         document.getElementById("myCounter").innerHTML = mC;
+    //         document.getElementById("computerCounter").innerHTML = cC;
+
+    //     }
+
+    // }
 
     function announceWinner() {
 
@@ -133,19 +144,19 @@ $(document).ready(function () {
         let cC = document.getElementById("computerCounter").innerHTML;
 
         if (mC > cC) {
-            
+
             $('.boundries').append("<div class='messageWon'> <h1>You Won</h1> </div>");
 
         }
 
         else if (cC > mC) {
-            
+
             $('.boundries').append("<div class='messageLost'> <h1>You lost to a robot</h1> </div>");
 
         }
 
         else {
-            
+
             $('.boundries').append("<div class='messageTry'> <h1>You didn't even try</h1> </div>");
         }
     }
