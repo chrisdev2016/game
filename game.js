@@ -6,7 +6,7 @@ $(document).ready(function () {
     document.getElementById("myCounter").innerHTML = mC;
     document.getElementById("computerCounter").innerHTML = cC;
 
-    var computerSpeed = Math.random() * 2000;
+    var computerSpeed = Math.random() * 1500;
     var mySpeed = Math.random() * 1000;
     var block = false;
 
@@ -29,6 +29,8 @@ $(document).ready(function () {
             block= true;
             
             setTimeout(()=> {block = false;}, mySpeed-100)
+            let newLocation = Math.random()*80 + "%"
+            $('#start').css('bottom', newLocation);
             mySpeed = Math.random() * 1000;
         }
 
@@ -73,7 +75,8 @@ $(document).ready(function () {
         // var y = setInterval(startRobot, 1000)
         // computerSpeed = Math.random() * 1000 +500 ;
         seconds = 10;
-        var y = setTimeout(startRobot, computerSpeed);
+        startRobot();
+        // var y = setTimeout(startRobot, computerSpeed);
         document.getElementById("countdown").innerHTML = seconds
 
         function countDown() {
@@ -84,7 +87,7 @@ $(document).ready(function () {
             if (seconds < 1) {
                 console.log('countdown stopped')
                 clearInterval(x);
-                clearInterval(y);
+                
                 $("#start").attr("disabled", "true")
                 announceWinner();
             }
@@ -112,7 +115,7 @@ $(document).ready(function () {
         cC++
         document.getElementById("computerCounter").innerHTML = cC;
         if (seconds > 0) {
-            computerSpeed = Math.random() * 2000;
+            computerSpeed = Math.random() * 1500;
             console.log(computerSpeed);
             setTimeout(startRobot, computerSpeed);
         }
