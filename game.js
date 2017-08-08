@@ -6,7 +6,7 @@ $(document).ready(function () {
     document.getElementById("myCounter").innerHTML = mC;
     document.getElementById("computerCounter").innerHTML = cC;
 
-    var computerSpeed = Math.random() * 1000 +500;
+    var computerSpeed = Math.random() * 2000;
     var mySpeed = Math.random() * 1000;
     var block = false;
 
@@ -71,7 +71,7 @@ $(document).ready(function () {
     function playFunction() {
         var x = setInterval(countDown, 1000)
         // var y = setInterval(startRobot, 1000)
-        computerSpeed = Math.random() * 1000 +500 ;
+        // computerSpeed = Math.random() * 1000 +500 ;
         seconds = 10;
         var y = setTimeout(startRobot, computerSpeed);
         document.getElementById("countdown").innerHTML = seconds
@@ -112,7 +112,8 @@ $(document).ready(function () {
         cC++
         document.getElementById("computerCounter").innerHTML = cC;
         if (seconds > 0) {
-            computerSpeed = Math.random() * 1000;
+            computerSpeed = Math.random() * 2000;
+            console.log(computerSpeed);
             setTimeout(startRobot, computerSpeed);
         }
 
