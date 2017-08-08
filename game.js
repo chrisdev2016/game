@@ -12,30 +12,30 @@ $(document).ready(function () {
 
         if (mC != 0  || cC != 0)
         {
-            $("#box1").animate({ "bottom": "-=420px" }, 0)
+            // $("#box1").animate({ "bottom": "-=420px" }, 0)
             $("#box2").animate({ "bottom": "-=420px" }, 0)
         }
 
-        $("#box1").animate({ "bottom": "+=420px" }, computerSpeed-100)
+        // $("#box1").animate({ "bottom": "+=420px" }, computerSpeed-100)
         $("#box2").animate({ "bottom": "+=420px" }, mySpeed-100)
 
-        if (mySpeed > computerSpeed) {
-            mC++    
-           document.getElementById("myCounter").innerHTML = mC;
+        // if (mySpeed > computerSpeed) {
+        //     mC++    
+        //    document.getElementById("myCounter").innerHTML = mC;
  
-        }
+        // }
 
-        else if (computerSpeed > mySpeed) {
-            cC++
-          document.getElementById("computerCounter").innerHTML = cC;
-         }
-        else {
-            mC++
-            cC++
-           document.getElementById("myCounter").innerHTML = mC;
-            document.getElementById("computerCounter").innerHTML = cC;
+        // else if (computerSpeed > mySpeed) {
+        //     cC++
+        //   document.getElementById("computerCounter").innerHTML = cC;
+        //  }
+        // else {
+        //     mC++
+        //     cC++
+        //    document.getElementById("myCounter").innerHTML = mC;
+        //     document.getElementById("computerCounter").innerHTML = cC;
     
-        }
+        // }
 
     })
 })
@@ -46,6 +46,7 @@ $("#play").click(function () {
 
 
 playFunction();  
+startRobot();
 
 })
 
@@ -70,6 +71,48 @@ function playFunction(){
                 announceWinner();
             }
     } 
+
+}
+
+function startRobot(){
+var computerSpeed = Math.random() * 1000;
+        // var mySpeed = Math.random() * 1000;
+
+        if (mC != 0  || cC != 0)
+        {
+            $("#box1").animate({ "bottom": "-=420px" }, 0)
+            // $("#box2").animate({ "bottom": "-=420px" }, 0)
+        }
+
+        $("#box1").animate({ "bottom": "+=420px" }, computerSpeed-100)
+        // $("#box2").animate({ "bottom": "+=420px" }, mySpeed-100)
+
+    
+compareSpeed();
+    
+
+
+}
+
+function compareSpeed(){
+
+        if (mySpeed > computerSpeed) {
+            mC++    
+           document.getElementById("myCounter").innerHTML = mC;
+ 
+        }
+
+        else if (computerSpeed > mySpeed) {
+            cC++
+          document.getElementById("computerCounter").innerHTML = cC;
+         }
+        else {
+            mC++
+            cC++
+           document.getElementById("myCounter").innerHTML = mC;
+            document.getElementById("computerCounter").innerHTML = cC;
+    
+        }
 
 }
 
