@@ -6,11 +6,13 @@ $(document).ready(function () {
     document.getElementById("myCounter").innerHTML = mC;
     document.getElementById("computerCounter").innerHTML = cC;
 
-    var computerSpeed = Math.random() * 1000;
+    var computerSpeed = Math.random() * 1000 +500;
     var mySpeed = Math.random() * 1000;
     var block = false;
-    $("#start").click(function () {
 
+
+
+    $("#start").click(function () {
         // var computerSpeed = Math.random() * 1000;
         // var mySpeed = Math.random() * 1000;
         if (!block) {
@@ -54,7 +56,7 @@ $(document).ready(function () {
 
 
     $("#play").click(function () {
-
+  $('#start').css('display', 'block');
 
         playFunction();
 
@@ -69,7 +71,7 @@ $(document).ready(function () {
     function playFunction() {
         var x = setInterval(countDown, 1000)
         // var y = setInterval(startRobot, 1000)
-        var computerSpeed = Math.random() * 1000;
+        computerSpeed = Math.random() * 1000 +500 ;
         seconds = 10;
         var y = setTimeout(startRobot, computerSpeed);
         document.getElementById("countdown").innerHTML = seconds
@@ -157,9 +159,16 @@ $(document).ready(function () {
 
         else {
 
-            $('.boundries').append("<div class='messageTry'> <h1>You didn't even try</h1> </div>");
+            $('.boundries').append("<div class='messageTry'> <h1>It's a Tie!!</h1> </div>");
         }
     }
+
+
+    $('#reset').click(function(){
+
+ location.reload();
+
+    })
 
 
 
