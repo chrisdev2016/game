@@ -7,40 +7,48 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
+        body {
+            background-image: url("tvo-background.jpg");
+        }
+
         .boundries {
-            width: 500px;
+            width: 50%;
             height: 500px;
-            background-color: whitesmoke;
+            background-color: black;
             border: 1px solid black;
-            position: relative;
+            position: absolute;
+            left: 25%;
+            right: 25%;
+            color: white;
         }
 
 
         .box1 {
-            width: 50px;
-            height: 50px;
+            width: 8%;
+            height: 8%;
             background-color: red;
             position: absolute;
             bottom: 0;
-            left: 100px;
+            left: 15%;
+            ;
         }
 
         .box2 {
-            width: 50px;
-            height: 50px;
+            width: 8%;
+            height: 8%;
             background-color: green;
             position: absolute;
             bottom: 0;
-            left: 200px;
+            left: 40%;
         }
 
         .mybutton {
-            width: 100px;
-            height: 50px;
+            width: 20%;
+            height: 10%;
             background-color: blue;
             position: absolute;
-            bottom: 50px;
-            left: 400px;
+            bottom: 5%;
+            left: 80%;
         }
 
         .messageTry {
@@ -72,6 +80,13 @@
             right: 25%;
             text-align: center;
         }
+        #countdown {
+            display:inline-block;
+            font-size:2em;
+            margin: 0 auto;
+            position:absolute;
+            left:50%;
+        }
     </style>
 
 
@@ -79,11 +94,11 @@
 </head>
 
 <body>
-    <button id="play">play</button>
-    <p id="countdown"> </p>
+
 
     <div class="boundries">
-
+        <button id="play">play</button>
+        <p id="countdown"> </p>
 
         <div>
             <p id="myCounter"> </p>
