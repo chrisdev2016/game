@@ -45,7 +45,17 @@ $(document).ready(function () {
 $("#play").click(function () {
 
 
-    var x = setInterval(countDown, 1000)
+playFunction();  
+
+})
+
+
+
+
+
+
+function playFunction(){
+        var x = setInterval(countDown, 1000)
 
     var seconds = 5;
     document.getElementById("countdown").innerHTML = seconds
@@ -59,9 +69,9 @@ $("#play").click(function () {
                 $("#start").attr("disabled", "true")
                 announceWinner();
             }
-    }   
+    } 
 
-})
+}
 
 
 
