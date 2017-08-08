@@ -2,11 +2,11 @@ $(document).ready(function () {
 
     var mC = 0;
     var cC = 0;
-   document.getElementById("myCounter").innerHTML = mC;
-   document.getElementById("computerCounter").innerHTML = cC;
+    document.getElementById("myCounter").innerHTML = mC;
+    document.getElementById("computerCounter").innerHTML = cC;
 
     $("#start").click(function () {
-     
+
         var computerSpeed = Math.random() * 1000;
         var mySpeed = Math.random() * 1000;
 
@@ -40,7 +40,7 @@ $(document).ready(function () {
     })
 })
 
- 
+
 
 $("#play").click(function () {
 
@@ -58,7 +58,7 @@ startRobot();
 function playFunction(){
         var x = setInterval(countDown, 1000)
 
-    var seconds = 5;
+    var seconds = 3;
     document.getElementById("countdown").innerHTML = seconds
 
     function countDown() {
@@ -116,30 +116,26 @@ function compareSpeed(){
 
 }
 
+function announceWinner() {
 
+    let mC = document.getElementById("myCounter").innerHTML;
+    let cC = document.getElementById("computerCounter").innerHTML;
 
-// $('#reset').click(function(){
-//     mC = 0;
-//     cC = 0;
-//     seconds = 5;
-//     $('#start').attr("disabled", 'true')
-// })
+    if (mC > cC) {
+        // alert("you won")
+        $('.boundries').append("<div class='messageWon'> <h1>You Won</h1> </div>");
 
-function announceWinner(){
-
-   let mC =   document.getElementById("myCounter").innerHTML ;
-   let cC =   document.getElementById("computerCounter").innerHTML ;
-  
-    if(mC>cC){
-       alert("you won")
     }
 
-    else if(cC>mC){
-        alert("you lost")
+    else if (cC > mC) {
+        // alert("you lost")
+        $('.boundries').append("<div class='messageLost'> <h1>You lost to a robot</h1> </div>");
+
     }
 
-    else{
-        alert("try again")
+    else {
+        // alert("try again")
+        $('.boundries').append("<div class='messageTry'> <h1>You didn't even try</h1> </div>");
     }
 }
 

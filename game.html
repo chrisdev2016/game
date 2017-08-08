@@ -10,7 +10,7 @@
         .boundries {
             width: 500px;
             height: 500px;
-            background-color: black;
+            background-color: whitesmoke;
             border: 1px solid black;
             position: relative;
         }
@@ -42,6 +42,36 @@
             bottom: 50px;
             left: 400px;
         }
+
+        .messageTry {
+            position: absolute;
+            bottom: 50%;
+            left: 25%;
+            background-color: purple;
+            padding: 15px;
+            right: 25%;
+            text-align: center;
+        }
+
+        .messageWon {
+            position: absolute;
+            bottom: 50%;
+            left: 25%;
+            background-color: blue;
+            padding: 15px;
+            right: 25%;
+            text-align: center;
+        }
+
+        .messageLost {
+            position: absolute;
+            bottom: 50%;
+            left: 25%;
+            background-color: red;
+            padding: 15px;
+            right: 25%;
+            text-align: center;
+        }
     </style>
 
 
@@ -50,18 +80,17 @@
 
 <body>
     <button id="play">play</button>
-    <button id="reset">reset</button>
     <p id="countdown"> </p>
 
     <div class="boundries">
 
 
         <div>
-         <p style="color:antiquewhite" id="myCounter"> </p>
+            <p id="myCounter"> </p>
         </div>
 
         <div>
-        <p style="color:antiquewhite" id="computerCounter"></p>
+            <p id="computerCounter"></p>
         </div>
         <div id="box1" class="box1">
         </div>
@@ -74,7 +103,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
-    <script type="text/javascript" src="game.js"></script>
+    <script type="text/javascript" src="new.js"></script>
 </body>
 
 </html>
