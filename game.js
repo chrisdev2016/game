@@ -79,7 +79,7 @@ $(document).ready(function () {
             seconds--;
             document.getElementById("countdown").innerHTML = seconds;
 
-            if (seconds < 0) {
+            if (seconds < 1) {
                 console.log('countdown stopped')
                 clearInterval(x);
                 clearInterval(y);
@@ -109,7 +109,7 @@ $(document).ready(function () {
 
         cC++
         document.getElementById("computerCounter").innerHTML = cC;
-        if (seconds > -1) {
+        if (seconds > 0) {
             computerSpeed = Math.random() * 1000;
             setTimeout(startRobot, computerSpeed);
         }
