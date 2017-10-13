@@ -13,44 +13,26 @@ $(document).ready(function () {
 
 
     $("#start").click(function () {
-        // var computerSpeed = Math.random() * 1000;
-        // var mySpeed = Math.random() * 1000;
+     
         if (!block) {
             if (mC != 0 || cC != 0) {
-                // $("#box1").animate({ "bottom": "-=420px" }, 0)
+            
                 $("#box2").animate({ "bottom": "-=420px" }, 0)
             }
 
-            // $("#box1").animate({ "bottom": "+=420px" }, computerSpeed-100)
+            
             $("#box2").animate({ "bottom": "+=420px" }, mySpeed - 100)
             console.log(mC);
             mC++
             document.getElementById("myCounter").innerHTML = mC;
-            block= true;
-            
-            setTimeout(()=> {block = false;}, mySpeed-100)
-            let newLocation = Math.random()*80 + "%"
+            block = true;
+
+            setTimeout(() => { block = false; }, mySpeed - 100)
+            let newLocation = Math.random() * 80 + "%"
             $('#start').css('bottom', newLocation);
             mySpeed = Math.random() * 1000;
         }
 
-        // if (mySpeed > computerSpeed) {
-        //     mC++    
-        //    document.getElementById("myCounter").innerHTML = mC;
-
-        // }
-
-        // else if (computerSpeed > mySpeed) {
-        //     cC++
-        //   document.getElementById("computerCounter").innerHTML = cC;
-        //  }
-        // else {
-        //     mC++
-        //     cC++
-        //    document.getElementById("myCounter").innerHTML = mC;
-        //     document.getElementById("computerCounter").innerHTML = cC;
-
-        // }
 
     })
 
@@ -58,25 +40,19 @@ $(document).ready(function () {
 
 
     $("#play").click(function () {
-  $('#start').css('display', 'block');
-
+        $('#start').css('display', 'block');
         playFunction();
-
-
     })
-
-
 
 
 
 
     function playFunction() {
         var x = setInterval(countDown, 1000)
-        // var y = setInterval(startRobot, 1000)
-        // computerSpeed = Math.random() * 1000 +500 ;
+
         seconds = 10;
         startRobot();
-        // var y = setTimeout(startRobot, computerSpeed);
+
         document.getElementById("countdown").innerHTML = seconds
 
         function countDown() {
@@ -87,7 +63,7 @@ $(document).ready(function () {
             if (seconds < 1) {
                 console.log('countdown stopped')
                 clearInterval(x);
-                
+
                 $("#start").attr("disabled", "true")
                 announceWinner();
             }
@@ -96,23 +72,16 @@ $(document).ready(function () {
     }
 
 
+
     function startRobot() {
-
-
-
-
         let cC = document.getElementById("computerCounter").innerHTML;
-
-
         if (mC != 0 || cC != 0) {
             $("#box1").animate({ "bottom": "-=420px" }, 0)
-            // $("#box2").animate({ "bottom": "-=420px" }, 0)
         }
 
         $("#box1").animate({ "bottom": "+=420px" }, computerSpeed - 100)
-        // $("#box2").animate({ "bottom": "+=420px" }, mySpeed-100)
 
-        cC++
+        cC++;
         document.getElementById("computerCounter").innerHTML = cC;
         if (seconds > 0) {
             computerSpeed = Math.random() * 1500;
@@ -122,27 +91,8 @@ $(document).ready(function () {
 
     }
 
-    // function compareSpeed() {
 
-    //     if (mySpeed > computerSpeed) {
-    //         mC++
-    //         document.getElementById("myCounter").innerHTML = mC;
 
-    //     }
-
-    //     else if (computerSpeed > mySpeed) {
-    //         cC++
-    //         document.getElementById("computerCounter").innerHTML = cC;
-    //     }
-    //     else {
-    //         mC++
-    //         cC++
-    //         document.getElementById("myCounter").innerHTML = mC;
-    //         document.getElementById("computerCounter").innerHTML = cC;
-
-    //     }
-
-    // }
 
     function announceWinner() {
 
@@ -150,32 +100,24 @@ $(document).ready(function () {
         let cC = parseInt(document.getElementById("computerCounter").innerHTML);
 
         if (mC > cC) {
-
             $('.boundries').append("<div class='messageWon'> <h1>You Won</h1> </div>");
-
         }
 
         else if (cC > mC) {
-
             $('.boundries').append("<div class='messageLost'> <h1>You lost to a robot</h1> </div>");
-
         }
 
         else {
-
             $('.boundries').append("<div class='messageTry'> <h1>It's a Tie!!</h1> </div>");
         }
     }
 
 
-    $('#reset').click(function(){
 
- location.reload();
 
+
+    $('#reset').click(function () {
+        location.reload();
     })
-
-
-
-
 })
 
